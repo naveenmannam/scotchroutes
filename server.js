@@ -8,9 +8,6 @@ var port = process.env.PORT || 5000;
 
 
 
-
-
-
 // Main route
 app.get("/", (req, res) => {
     res.send("Home Page");

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router;
+const path = express('path');
 
 module.exports = router;
 
@@ -30,9 +31,4 @@ router.get("/about", (req, res) => {
 // Friends route
 router.get("/friends", (req, res) => {
     res.sendFile(path.join(__dirname, 'friends.html'));
-});
-
-router.get("/:profile", (req, res) => {
-    var stat = req.params.profile;
-    res.send("<h1 style='text-align: center'>" + stat.toUpperCase() + " 404 Page not found </h1>");
 });

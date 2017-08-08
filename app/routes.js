@@ -1,34 +1,44 @@
-const express = require('express');
-const router = express.Router;
-const path = express('path');
+var express = require('express');
+var router = express.Router();
+var bodyParser = require('body-parser');
+var path = require('path');
 
 module.exports = router;
 
+router.use(bodyParser.urlencoded({ extender: true}));
+
 // Main route
-router.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
+router.get("/",         showRoot);
+router.get("/contact",  showContact);
+router.post("/contact", postContact);
+router.get("/about",    showAbout);
+router.get("/friends",  showFriends);
+router.use(postError);
 
-// Contact route
-router.get("/contact", (req, res) => {
-    res.sendFile(path.join(__dirname, "contact.html"));
-});
+function showRoot(req, res) {
+    res.sendFile(path.join(__dirname, '../index.html'));
+};
 
-router.post("/contact", (req, res) => {
+function showContact(req, res) {
+    res.sendFile(path.join(__dirname, "../contact.html"));
+}
+
+function postContact(req, res) {
     var fname = req.body.firstName;
     var lname = req.body.lastName;
     res.send("<h1> Full Name : " + fname + " " + lname + "</h1>");
-    // res.sendFile(path.join(__dirname, "contact.html"));
-});
+}
 
+function showAbout(req, res) {
+    res.sendFile(path.join(__dirname, '../about.html'));
+}
 
-// About route
-router.get("/about", (req, res) => {
-    res.sendFile(path.join(__dirname, 'about.html'));
-});
+function showFriends(req, res) {
+    res.sendFile(path.join(__dirname, '../friends.html'));
+}
 
+function postError(req, res, next) {
+    res.send("404 Page Not Find!!!");
+    next();
+}
 
-// Friends route
-router.get("/friends", (req, res) => {
-    res.sendFile(path.join(__dirname, 'friends.html'));
-});

@@ -16,10 +16,6 @@ app.use(router);
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.use((req, res, next) => {
-    res.sendFile(path.join(__dirname, 'error.html'));
-    next();
-});
 
 
 // Starting the server

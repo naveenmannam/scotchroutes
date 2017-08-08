@@ -10,11 +10,11 @@ module.exports = router;
 router.use(bodyParser.urlencoded({ extender: true}));
 
 // Main route
-router.get("/",         siteCOntroller.showRoot);
-router.get("/contact",  siteCOntroller.showContact);
-router.post("/contact", siteCOntroller.postContact);
-router.get("/about",    siteCOntroller.showAbout);
-router.get("/friends",  siteCOntroller.showFriends);
+router.get("/",         siteController.showRoot);
+router.get("/contact",  siteController.showContact);
+router.post("/contact", siteController.postContact);
+router.get("/about",    siteController.showAbout);
+router.get("/friends",  siteController.showFriends);
 router.use(siteCOntroller.postError);
 
 router.get('/dash',     dashController.showDash);

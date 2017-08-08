@@ -5,7 +5,8 @@ module.exports = {
     showContact: showContact,
     postContact: postContact,
     showAbout: showAbout,
-    showFriends: showFriends
+    showFriends: showFriends,
+    postError: postError
 };
 
 function showRoot(req, res) {
@@ -31,6 +32,6 @@ function showFriends(req, res) {
 }
 
 function postError(req, res, next) {
-    res.send("404 Page Not Find!!!");
+    res.send("<h1>404 Page Not Find!!!</h1>");
     next();
 }

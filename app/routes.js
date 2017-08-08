@@ -15,7 +15,7 @@ router.get("/contact",  siteController.showContact);
 router.post("/contact", siteController.postContact);
 router.get("/about",    siteController.showAbout);
 router.get("/friends",  siteController.showFriends);
-// router.use(siteController.postError);
+router.use(siteController.postError);
 
 router.get('/dash',     dashController.showDash);
 

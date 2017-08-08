@@ -1,5 +1,5 @@
-module.exports.dashBoardController = {
-	showDash
+module.exports = {
+	showDash: showDash
 };
 
 function showDash(req, res){

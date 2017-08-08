@@ -1,18 +1,19 @@
 var path = require('path');
-module.exports.siteController = {
-	showRoot,
-	showContact,
-	postContact,
-	showAbout,
-	showFriends
+var bodyParser = require('body-parser');
+module.exports = {
+    showRoot: showRoot,
+    showContact: showContact,
+    postContact: postContact,
+    showAbout: showAbout,
+    showFriends: showFriends
 };
 
 function showRoot(req, res) {
-    res.sendFile(path.join(__dirname, '../..index.html'));
+    res.sendFile(path.join(__dirname, '../../index.html'));
 };
 
 function showContact(req, res) {
-    res.sendFile(path.join(__dirname, "../..contact.html"));
+    res.sendFile(path.join(__dirname, "../../contact.html"));
 }
 
 function postContact(req, res) {
@@ -22,15 +23,14 @@ function postContact(req, res) {
 }
 
 function showAbout(req, res) {
-    res.sendFile(path.join(__dirname, '../..about.html'));
+    res.sendFile(path.join(__dirname, '../../about.html'));
 }
 
 function showFriends(req, res) {
-    res.sendFile(path.join(__dirname, '../..friends.html'));
+    res.sendFile(path.join(__dirname, '../../friends.html'));
 }
 
 function postError(req, res, next) {
     res.send("404 Page Not Find!!!");
     next();
 }
-

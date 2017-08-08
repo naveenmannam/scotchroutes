@@ -1,3 +1,3 @@
-# Sotch Site
+# Scotch Site
 
-Simple sotch site with route parameters
+## Simple sotch site with route parameters
